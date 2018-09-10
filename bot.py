@@ -25,7 +25,7 @@ for extension in extensions:
 @bot.event
 async def on_ready():
     print('Online and ready for action')
-    await bot.change_presence(activity=discord.Game(name='with Moderators'))
+    await bot.change_presence(activity=discord.Game(name='with Moderators Commands'))
 
 bot.remove_command('help')
 
