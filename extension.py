@@ -11,7 +11,7 @@ class MembersCog:
         return ctx.guild and ctx.author.guild_permissions.view_audit_log
 
     @commands.command()
-    async def toggle(self, ctx):
+    async def raidmode(self, ctx):
         current_mode = self.raid_modes.get(ctx.guild.id, False)
         decoder = {
             "True": "ON",
