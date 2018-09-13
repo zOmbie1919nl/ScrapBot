@@ -111,7 +111,6 @@ class Modcommands:
         elif createdday == joinedday or createdday == joinedday2:
             em = discord.Embed(title="Alt account suspected", colour=0xff6700)
             em.set_thumbnail(url=member.avatar_url)
-            em.add_field(name="Bot's Opinion:", value="Seeing they've joined right after they've created their account, there is a slight chance that they're an alt account!", inline=False)
             em.add_field(name="Username:", value=member.mention, inline=False)
             em.add_field(name="User's ID:", value=member.id, inline=False)
             em.add_field(name="Joined at:", value=joined, inline=False)
@@ -122,7 +121,6 @@ class Modcommands:
         else:
             em = discord.Embed(title="Alt account suspected", colour=0xff6700)
             em.set_thumbnail(url=member.avatar_url)
-            em.add_field(name="Bot's Opinion:", value="Nothing really, this person doesn't look suspicious to me.", inline=False)
             em.add_field(name="Username:", value=member.mention, inline=False)
             em.add_field(name="User's ID:", value=member.id, inline=False)
             em.add_field(name="Joined at:", value=joined, inline=False)
