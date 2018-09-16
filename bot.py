@@ -60,4 +60,4 @@ async def specialhelp(ctx):
     em.add_field(name="Rps [your move]", value="the bot will play a game of Rock Paper Scissors with you.", inline=False)
 
 
-bot.run('NDg3MjYxNjE0NjI2NzAxMzE0.DnLFWw.aqdba4SXrI4AedPdyIOTr99Iax0')
+bot.run(os.environ['TOKEN'])
