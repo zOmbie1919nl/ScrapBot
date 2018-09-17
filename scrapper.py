@@ -41,6 +41,7 @@ class ScrapperCommands:
             em.add_field(name="User's ID:", value=member.id, inline=False)
             em.add_field(name="Joined at:", value=joined, inline=False)
             em.add_field(name="Registered:", value=created, inline=False)
+            em.add_field(name="Reason for suspect", value=reason, inline=False)
             em.add_field(name="Suspected by:", value=author.mention, inline=False)
             return await channel.send(embed=em)
 
