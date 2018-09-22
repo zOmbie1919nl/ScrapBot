@@ -8,7 +8,7 @@ import logging
 import traceback
 from discord.ext import commands
 
-extensions = ['extension', "modcom", "headandowner", "embed", "super", "special", "scrapper"]
+extensions = ['extension', "modcom", "headandowner", "embed", "super", "special"]
 logging.basicConfig(level='INFO')
 logger = logging.getLogger('Loggie')
 
