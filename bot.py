@@ -31,4 +31,4 @@ bot.remove_command('help')
 
 
 
-bot.run('os.environ['TOKEN']')
+bot.run('TOKEN')
