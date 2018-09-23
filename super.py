@@ -23,6 +23,7 @@ class SuperCommands:
         if isinstance(error, commands.CheckFailure):
             return
 
+    @commands.cooldown(1, 30, commands.BucketType.user)    
     @commands.command()
     async def ping(self, ctx):
         start = time.monotonic()
@@ -30,6 +31,7 @@ class SuperCommands:
         heartbeat = ctx.bot.latency * 1000
         await msg.edit(content=f'Ping: {heartbeat:,.2f}ms')
 
+    @commands.cooldown(1, 30, commands.BucketType.user)     
     @commands.command()
     async def selfinfo(self, ctx):
         member = ctx.author
@@ -50,6 +52,7 @@ class SuperCommands:
         em.add_field(name='Roles:', value=', '.join(r.name if r.name == '@everyone' else r.mention for r in sorted(member.roles, key=str)), inline=False)
         return await ctx.send(embed=em)
 
+    @commands.cooldown(1, 30, commands.BucketType.user)
     @commands.command()
     async def memberinfo(self, ctx, member: discord.Member=None):
         if member is None:
