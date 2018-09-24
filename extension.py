@@ -1,14 +1,12 @@
 import discord
 import asyncio
+import async_timeout
 from discord.ext import commands
 
 class AutoActions:
     def __init__(self, bot):
         self.bot = bot
         self.raid_modes = dict()
-
-    async def __local_check(self, ctx):
-        return ctx.guild and ctx.author.guild_permissions.view_audit_log
 
     @commands.command()
     async def raidmode(self, ctx):
@@ -41,6 +39,13 @@ class AutoActions:
                 await asyncio.sleep(length)
                 await member.remove_roles(role)
 
+    async def on_message(self, msg: discord.Message):
+        channel = msg.channel
+        if msg.content == "?ban":
+            url = "https://cdn.discordapp.com/attachments/332597002816978944/493491330941452304/zOmbie2.gif"
+            em = discord.Embed()
+            em.set_image(url=url)
+            await channel.send(embed=em)
 
 
 def setup(bot):

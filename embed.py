@@ -19,8 +19,11 @@ class EmbedFacade(dict):
 
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.CheckFailure):
-            author = ctx.author
-            return print(f"HeadAndOwnerCommand used in {ctx.channel.name} by {author.name}")
+            return
+        elif isinstance(error, commands.CommandOnCooldown):
+            await ctx.send(f"The command is on a cool down. You need to wait {int(error.retry_after) +1} seconnd(s).")
+        else:
+            raise error
 
     @commands.command()
     async def embed(self, ctx, *, content):

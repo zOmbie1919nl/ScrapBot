@@ -17,10 +17,7 @@ class SpecialCommands:
             return True
         return False
 
-    async def on_command_error(self, ctx, error):
-        if isinstance(error, commands.CheckFailure):
-            return
-        
+
     @commands.cooldown(1, 60, commands.BucketType.user)
     @commands.command()
     async def apistats(self, ctx):
@@ -29,6 +26,7 @@ class SpecialCommands:
         status = json_data["status"]
         description = status["description"]
         await ctx.send(f"Discord Api status is: ``{description}``")
+
 
     @commands.cooldown(1, 60, commands.BucketType.user)
     @commands.command()
@@ -58,6 +56,7 @@ class SpecialCommands:
         else:
             await ctx.send(f"You played {your_move}, I played {scrap_move}, {who_won(your_move, scrap_move)}")
 
+
     @commands.cooldown(1, 60, commands.BucketType.user)
     @commands.command()
     async def dog(self, ctx):
@@ -68,7 +67,8 @@ class SpecialCommands:
         em.set_image(url=img)
         await ctx.send(embed=em)
 
-    @commands.cooldown(1, 60, commands.BucketType.user)
+
+    @commands.cooldown(1, 30, commands.BucketType.user)
     @commands.command()
     async def cat(self, ctx):
         querystring = {"format":"json"}
@@ -78,7 +78,6 @@ class SpecialCommands:
         }
         async with aiohttp.request("GET", "https://api.thecatapi.com/v1/images/search", headers=headers, params=querystring) as response:
             data = await response.json()
-        # img = data["url"]
         img = data[0]['url']
         em = discord.Embed(name="Here have a cat", colour=0xc0ffee)
         em.set_image(url=img)
