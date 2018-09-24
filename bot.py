@@ -1,6 +1,7 @@
 import discord
 import logging
 import traceback
+import os
 from discord.ext import commands
 
 extensions = ['extension', "modcom", "headandowner", "embed", "super", "special", "scrapper"]
