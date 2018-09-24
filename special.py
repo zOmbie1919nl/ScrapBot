@@ -21,7 +21,7 @@ class SpecialCommands:
         if isinstance(error, commands.CheckFailure):
             return
         
-    @commands.cooldown(1, 30, commands.BucketType.user)
+    @commands.cooldown(1, 60, commands.BucketType.user)
     @commands.command()
     async def apistats(self, ctx):
         async with aiohttp.request("get", "https://status.discordapp.com/api/v2/status.json") as resp:
@@ -30,7 +30,7 @@ class SpecialCommands:
         description = status["description"]
         await ctx.send(f"Discord Api status is: ``{description}``")
 
-    @commands.cooldown(1, 30, commands.BucketType.user)
+    @commands.cooldown(1, 60, commands.BucketType.user)
     @commands.command()
     async def rps(self, ctx, *, words=None):
         ROCK='rock'
@@ -58,7 +58,7 @@ class SpecialCommands:
         else:
             await ctx.send(f"You played {your_move}, I played {scrap_move}, {who_won(your_move, scrap_move)}")
 
-    @commands.cooldown(1, 30, commands.BucketType.user)
+    @commands.cooldown(1, 60, commands.BucketType.user)
     @commands.command()
     async def dog(self, ctx):
         async with aiohttp.request("get", "https://dog.ceo/api/breeds/image/random") as resp:
@@ -68,7 +68,7 @@ class SpecialCommands:
         em.set_image(url=img)
         await ctx.send(embed=em)
 
-    @commands.cooldown(1, 30, commands.BucketType.user)
+    @commands.cooldown(1, 60, commands.BucketType.user)
     @commands.command()
     async def cat(self, ctx):
         querystring = {"format":"json"}
