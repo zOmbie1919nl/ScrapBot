@@ -23,7 +23,7 @@ class Modcommands:
             return
         elif isinstance(error, commands.CommandOnCooldown):
             author = ctx.author
-            await ctx.send(f"{mention.author}The command is on a cool down. You need to wait {int(error.retry_after) +1} seconnd(s)."), delete_after = 5
+            await ctx.send(f"{mention.author}The command is on a cool down. You need to wait {int(error.retry_after) +1} seconnd(s).", delete_after = 5)
         else:
             raise error
 
