@@ -68,7 +68,7 @@ class SpecialCommands:
         await ctx.send(embed=em)
 
 
-    @commands.cooldown(1, 30, commands.BucketType.user)
+    @commands.cooldown(1, 60, commands.BucketType.user)
     @commands.command()
     async def cat(self, ctx):
         querystring = {"format":"json"}
