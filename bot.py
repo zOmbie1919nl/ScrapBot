@@ -66,4 +66,4 @@ async def specialhelp(ctx):
     await author.send(embed=em)
 
 
-bot.run('NDg3MjYxNjE0NjI2NzAxMzE0.DnLFWw.aqdba4SXrI4AedPdyIOTr99Iax0')
+bot.run(os.environ['TOKEN'])
