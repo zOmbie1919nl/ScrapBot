@@ -71,18 +71,12 @@ class SpecialCommands:
     @commands.cooldown(1, 60, commands.BucketType.user)
     @commands.command()
     async def cat(self, ctx):
-        querystring = {"format":"json"}
-        headers = {
-            'Content-Type': "application/json",
-            'x-api-key': "0c79c289-dcfb-4a6f-ab25-7609deabfd76"
-        }
-        async with aiohttp.request("GET", "https://api.thecatapi.com/v1/images/search", headers=headers, params=querystring) as response:
-            data = await response.json()
-        img = data[0]['url']
-        em = discord.Embed(name="Here have a cat", colour=0xc0ffee)
+        async with aiohttp.request("get", "http://aws.random.cat/meow") as resp:
+            json_data = await resp.json()
+        img = json_data["file"]
+        em = discord.Embed(name="Here have a kitten", colour=0xc0ffee)
         em.set_image(url=img)
         await ctx.send(embed=em)
-
 
 
 def setup(bot):
