@@ -39,14 +39,5 @@ class AutoActions:
                 await asyncio.sleep(length)
                 await member.remove_roles(role)
 
-    async def on_message(self, msg: discord.Message):
-        channel = msg.channel
-        if msg.content == "?ban":
-            url = "https://cdn.discordapp.com/attachments/332597002816978944/493491330941452304/zOmbie2.gif"
-            em = discord.Embed()
-            em.set_image(url=url)
-            await channel.send(embed=em)
-
-
 def setup(bot):
     bot.add_cog(AutoActions(bot))
