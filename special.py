@@ -27,7 +27,6 @@ class SpecialCommands:
         description = status["description"]
         await ctx.send(f"Discord Api status is: ``{description}``")
 
-
     @commands.cooldown(1, 60, commands.BucketType.user)
     @commands.command()
     async def rps(self, ctx, *, words=None):
@@ -49,10 +48,19 @@ class SpecialCommands:
                 return "It's a draw!"
         your_move = words
         scrap_move = random.choice(MOVES)
+        wins = ["ScrapMan", "scrapman", "Scrapman", "zOm"]
+        random1 = [f"{words} is not a possible move you can do, therefor I won! :grin:", 
+        f"{words} is a word that is totally NOT in the list of moves you can do, cheater :unamused:",
+        f"What do you think this is? Some kind of kids game? {words} is not a possible move",
+        f"I'm not the smartest, but even I know {words} is not a possible move",
+        f"Alright you've won, I can't compete with {words}"]
+        random2 = random.choice(random1)
         if your_move is None:
             await ctx.send(f"I gladly want to play Rock, Paper, Scissors with you, but you need to choose a move!")
+        elif your_move in wins:
+            await ctx.send(f"Awh man I can't win from {your_move}, you've won this round :frowning2:")
         elif your_move not in MOVES:
-            await ctx.send(f"{words} is not a possible move you can do, therefor I won! :grin:")
+            await ctx.send(f"{random2}")
         else:
             await ctx.send(f"You played {your_move}, I played {scrap_move}, {who_won(your_move, scrap_move)}")
 
