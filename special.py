@@ -53,7 +53,7 @@ class SpecialCommands:
         scrap_move = random.choice(MOVES)
 
         wins = ["ScrapMan", "scrapman", "Scrapman", "zOm"]
-        mentions = ["@everyone", "@moderator"]
+        mentions = ["@everyone", "@here", "@moderator"]
 
         random1 = [f"{words} is not a possible move you can do, therefor I won! :grin:", 
         f"{words} is a word that is totally NOT in the list of moves you can do, cheater :unamused:",
