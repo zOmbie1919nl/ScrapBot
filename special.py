@@ -62,7 +62,7 @@ class SpecialCommands:
         f"Alright you've won, I can't compete with {words}"]
 
         if your_move in mentions:
-            await ctx.send("Yeaaaah we're not gonna do that mate")
+            await ctx.send("Yeaaaah we're not gonna do that mate, Youve just wasted a turn")
         elif your_move is None:
             await ctx.send(f"I gladly want to play Rock, Paper, Scissors with you, but you need to choose a move!")
         elif your_move in wins:
