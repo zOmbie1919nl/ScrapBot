@@ -38,6 +38,7 @@ class SpecialCommands:
         PAPER: SCISSORS,
         SCISSORS: ROCK
         }
+        
         MOVES = list(WINNING_MOVES)
         def who_won(you, scrap):
             if WINNING_MOVES[you] == scrap:
@@ -46,16 +47,23 @@ class SpecialCommands:
                 return 'You won!'
             else:
                 return "It's a draw!"
+
+        random2 = random.choice(random1)
         your_move = words
         scrap_move = random.choice(MOVES)
+
         wins = ["ScrapMan", "scrapman", "Scrapman", "zOm"]
+        mentions = ["@everyone", "@moderator"]
+
         random1 = [f"{words} is not a possible move you can do, therefor I won! :grin:", 
         f"{words} is a word that is totally NOT in the list of moves you can do, cheater :unamused:",
         f"What do you think this is? Some kind of kids game? {words} is not a possible move",
         f"I'm not the smartest, but even I know {words} is not a possible move",
         f"Alright you've won, I can't compete with {words}"]
-        random2 = random.choice(random1)
-        if your_move is None:
+
+        if your_move in mentions:
+            await ctx.send("Yeaaaah we're not gonna do that mate")
+        elif your_move is None:
             await ctx.send(f"I gladly want to play Rock, Paper, Scissors with you, but you need to choose a move!")
         elif your_move in wins:
             await ctx.send(f"Awh man I can't win from {your_move}, you've won this round :frowning2:")
