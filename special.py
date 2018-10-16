@@ -47,9 +47,9 @@ class SpecialCommands:
                 return 'You won!'
             else:
                 return "It's a draw!"
-           
-         wins = ["ScrapMan", "scrapman", "Scrapman", "zOm"]
-        mentions = ["@everyone", "@here", "@moderator"]
+
+        wins = ["ScrapMan", "scrapman", "Scrapman", "zOm"]
+        mentions = ["@everyone", "@moderator"]
 
         random1 = [f"{words} is not a possible move you can do, therefor I won! :grin:", 
         f"{words} is a word that is totally NOT in the list of moves you can do, cheater :unamused:",
@@ -62,7 +62,7 @@ class SpecialCommands:
         scrap_move = random.choice(MOVES)
 
         if your_move in mentions:
-            await ctx.send("Yeaaaah we're not gonna do that mate, Youve just wasted a turn")
+            await ctx.send("Yeaaaah we're not gonna do that mate")
         elif your_move is None:
             await ctx.send(f"I gladly want to play Rock, Paper, Scissors with you, but you need to choose a move!")
         elif your_move in wins:
