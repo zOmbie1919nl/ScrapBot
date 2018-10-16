@@ -47,12 +47,8 @@ class SpecialCommands:
                 return 'You won!'
             else:
                 return "It's a draw!"
-
-        random2 = random.choice(random1)
-        your_move = words
-        scrap_move = random.choice(MOVES)
-
-        wins = ["ScrapMan", "scrapman", "Scrapman", "zOm"]
+           
+         wins = ["ScrapMan", "scrapman", "Scrapman", "zOm"]
         mentions = ["@everyone", "@here", "@moderator"]
 
         random1 = [f"{words} is not a possible move you can do, therefor I won! :grin:", 
@@ -60,6 +56,10 @@ class SpecialCommands:
         f"What do you think this is? Some kind of kids game? {words} is not a possible move",
         f"I'm not the smartest, but even I know {words} is not a possible move",
         f"Alright you've won, I can't compete with {words}"]
+
+        random2 = random.choice(random1)
+        your_move = words
+        scrap_move = random.choice(MOVES)
 
         if your_move in mentions:
             await ctx.send("Yeaaaah we're not gonna do that mate, Youve just wasted a turn")
