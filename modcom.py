@@ -14,7 +14,7 @@ class Modcommands:
     async def __local_check(self, ctx):
         guild = ctx.guild
         role = discord.utils.get(guild.roles, id=304833080563204096)
-        if role in ctx.auhtor.roles:
+        if role in ctx.author.roles:
             return True
         return False
 
