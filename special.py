@@ -84,6 +84,15 @@ class SpecialCommands:
         await ctx.send(embed=em)
 
 
+    @commands.cooldown(1, 60, commands.BucketType.user)        
+    @commands.command()
+    async def dogfact(self, ctx):
+        async with aiohttp.request("get", "https://fact.birb.pw/api/v1/dog") as resp:
+           json_data = await resp.json()
+        fact = json_data["string"]
+        await ctx.send(f"Did you know that: {fact}")
+
+
     @commands.cooldown(1, 60, commands.BucketType.user)
     @commands.command()
     async def cat(self, ctx):
@@ -93,6 +102,16 @@ class SpecialCommands:
         em = discord.Embed(name="Here have a kitten", colour=0xc0ffee)
         em.set_image(url=img)
         await ctx.send(embed=em)
+
+        
+    @commands.cooldown(1, 60, commands.BucketType.user)
+    @commands.command()
+    async def catfact(self, ctx):
+        async with aiohttp.request("get", "https://catfact.ninja/fact") as resp:
+           json_data = await resp.json()
+        fact = json_data["fact"]
+        await ctx.send(f"Did you know that: {fact}")
+
 
 
 def setup(bot):

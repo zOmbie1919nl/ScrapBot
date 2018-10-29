@@ -79,6 +79,11 @@ class SuperCommands:
         em.add_field(name="Members:", value=guild.member_count, inline=False)
         await ctx.send(embed=em)
 
+    @commands.cooldown(1, 60, commands.BucketType.user)
+    @commands.command()
+    async def membercount(self, ctx):
+        guild = ctx.guild
+        await ctx.send(f"The membercount is currently:\n``{guild.member_count}``")
 
 def setup(bot):
     bot.add_cog(SuperCommands(bot))
