@@ -47,7 +47,7 @@ async def superhelp(ctx):
 
 @bot.command()
 async def specialhelp(ctx):
-    em = discord.Embed(name="Special Scrapper Commands!")
+    em = discord.Embed(title="Special Scrapper Commands!")
     em.add_field(name="Apistats", value="this will show you the current status of Discord's API.", inline=False)
     em.add_field(name="Dog", value="this will send a friendly and cute picture of a dog.", inline=False)
     em.add_field(name="Dogfact", value="this will send a random fact about dogs", inline=False)
