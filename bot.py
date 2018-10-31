@@ -60,16 +60,15 @@ async def specialhelp(ctx):
 
 @bot.command()
 async def notisquad(ctx):
-    await ctx.message.delete()
     guild = ctx.guild
     member = ctx.author
     role = discord.utils.get(guild.roles, id=468420967522107402)
     if role not in ctx.author.roles:
         await member.add_roles(role)
-        await ctx.send("You've succesfully joined the notification squad", delete_after = 5)
+        await ctx.send("You've succesfully joined the notification squad")
     elif role in ctx.author.roles:
         await member.remove_roles(role)
-        await ctx.send("You've succesfully left the notification squad", delete_after = 5)
+        await ctx.send("You've succesfully left the notification squad")
 
 
 bot.run('NDg3MjYxNjE0NjI2NzAxMzE0.DqXFMQ.uR2nOmgnycHWv6AGEOjoqwVwDd4')
