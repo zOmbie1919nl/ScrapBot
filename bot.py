@@ -70,5 +70,3 @@ async def notisquad(ctx):
         await member.remove_roles(role)
         await ctx.send("You've succesfully left the notification squad")
 
-
-bot.run('NDg3MjYxNjE0NjI2NzAxMzE0.DqXFMQ.uR2nOmgnycHWv6AGEOjoqwVwDd4')
